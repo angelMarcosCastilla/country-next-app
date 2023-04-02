@@ -3,6 +3,7 @@ import React from 'react'
 import styles from './style.module.css'
 import { Country } from "../../../types/country"
 import Link from 'next/link'
+import Image from 'next/image'
 
 
 interface PageProps {
@@ -22,7 +23,7 @@ const CountryPage = async ({ params }: PageProps) => {
       <Link href="/">Back</Link>
       <article className={styles.cardContainer}>
         <section>
-          <img src={country.flags.svg} alt={country.flags.alt} />
+          <Image width={500} height={300} src={country.flags.svg} alt={country.flags.alt as string} />
         </section>
         <section>
           {country.name.common}
