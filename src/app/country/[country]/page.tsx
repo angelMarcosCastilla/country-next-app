@@ -23,7 +23,7 @@ const CountryPage = async ({ params }: PageProps) => {
       <Link href="/">Back</Link>
       <article className={styles.cardContainer}>
         <section>
-          <Image width={500} height={300} src={country.flags.svg} alt={country.flags.alt as string} />
+          <Image width={500} height={300} src={country.flags.svg} alt={`flag of ${country.name.common} country`} />
         </section>
         <section>
           {country.name.common}
