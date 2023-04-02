@@ -1,0 +1,8 @@
+.cardContainer {
+	display: flex;
+	gap: 1rem;
+}
+.detailsCountry{
+	display: flex;
+	gap: 3rem;
+}
