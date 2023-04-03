@@ -9,10 +9,7 @@ enum Theme {
 type typeToggle = Theme.dark | Theme.light;
 
 export default function Toggle() {
-  const [isDark, setIsdark] = useState<typeToggle>(() => {
-    const theme = window.localStorage.getItem("theme");
-    return theme ? (theme as typeToggle) : Theme.light;
-  });
+  const [isDark, setIsdark] = useState<typeToggle>(Theme.light);
 
   const handletogleTheme = () => {
     if (isDark === Theme.dark) {
@@ -30,6 +27,14 @@ export default function Toggle() {
       document.documentElement.classList.remove("dark");
     }
   }, [isDark]);
+
+  // cuando se monte en el cliente obtenemos el tema del localstorage
+  useEffect(() => {
+    const theme = window.localStorage.getItem("theme");
+    if (theme) {
+      setIsdark(theme as typeToggle);
+    }
+  }, []);
 
   return (
     <button
