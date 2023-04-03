@@ -22,12 +22,11 @@ export default function RootLayout({ children }: layoutProps) {
         <header className="py-4 shadow-md mb-1 ">
           <div className="container flex justify-between items-center">
             <h1>Where in the World?</h1>
-
             <button className="flex items-center gap-5">
               <svg
                 stroke="currentColor"
                 fill="currentColor"
-                stroke-width="0"
+                strokeWidth="0"
                 viewBox="0 0 512 512"
                 color="hsl(200, 15%, 8%)"
                 height="1em"

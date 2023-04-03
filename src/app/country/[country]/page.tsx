@@ -1,34 +1,39 @@
-import { api } from '@/services/api'
-import React from 'react'
-import styles from './style.module.css'
-import { Country } from "../../../types/country"
-import Link from 'next/link'
-import Image from 'next/image'
-
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import { api } from "@/services/api";
+import { Country } from "../../../types/country";
 
 interface PageProps {
   params: {
-    country: string
-  }
+    country: string;
+  };
 }
 
 const CountryPage = async ({ params }: PageProps) => {
-  const country: Country = await api.getCountryByName(params.country)
+  const country: Country = await api.getCountryByName(params.country);
 
-  const oficialCurrency = Object.values(country.currencies || {})[0].name
-  const population = country.population.toLocaleString('en-US')
+  const oficialCurrency = Object.values(country.currencies || {})[0].name;
+  const population = country.population.toLocaleString("en-US");
 
   return (
-    <div>
-      <Link href="/">Back</Link>
-      <article className={styles.cardContainer}>
+    <div className="container py-14">
+      <Link href="/" className="shadow-md px-6 py-2 hover:bg-gray-100">
+      ← {" "}Back
+      </Link>
+      <article className="py-14 flex gap-x-20 flex-wrap mt-5">
         <section>
-          <Image width={500} height={300} src={country.flags.svg} alt={`flag of ${country.name.common} country`} />
+          <Image
+            width={500}
+            height={300}
+            src={country.flags.svg}
+            alt={`flag of ${country.name.common} country`}
+          />
         </section>
-        <section>
-          {country.name.common}
-          <div className={styles.detailsCountry}>
-            <div>
+        <section className="">
+          <h2 className="text-4xl py-5 font-bold">{country.name.common}</h2>
+          <div className="flex flex-row gap-10">
+            <div className="flex flex-col gap-2">
               <p>
                 <strong>Native Name:</strong> {country.name.common}
               </p>
@@ -45,7 +50,7 @@ const CountryPage = async ({ params }: PageProps) => {
                 <strong>Capital: </strong> {country.capital}
               </p>
             </div>
-            <div>
+            <div className="flex flex-col gap-2">
               <p>
                 <strong>Top level Domain: </strong> {country.tld}
               </p>
@@ -57,7 +62,7 @@ const CountryPage = async ({ params }: PageProps) => {
         </section>
       </article>
     </div>
-  )
-}
+  );
+};
 
-export default CountryPage
+export default CountryPage;
