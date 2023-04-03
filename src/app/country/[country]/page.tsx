@@ -18,7 +18,10 @@ const CountryPage = async ({ params }: PageProps) => {
 
   return (
     <div className="container py-14">
-      <Link href="/" className="shadow-md px-6 py-2 hover:bg-gray-100">
+      <Link
+        href="/"
+        className="shadow-md px-6 py-2 dark:text-slate-200 hover:bg-gray-100 dark:bg-gray-700 hover:dark:bg-gray-600"
+      >
         ← Back
       </Link>
       <article className="py-14 flex gap-x-20 flex-wrap mt-5">
@@ -30,9 +33,9 @@ const CountryPage = async ({ params }: PageProps) => {
             alt={`flag of ${country.name.common} country`}
           />
         </section>
-        <section className="">
+        <section className="dark:text-slate-200 flex-shrink">
           <h2 className="text-4xl py-5 font-bold">{country.name.common}</h2>
-          <div className="flex flex-row gap-10">
+          <div className="flex flex-row gap-10 ">
             <div className="flex flex-col gap-2">
               <p>
                 <strong>Native Name:</strong> {country.name.common}
@@ -59,13 +62,13 @@ const CountryPage = async ({ params }: PageProps) => {
               </p>
             </div>
           </div>
-          <footer className="mt-8">
+          <footer className="mt-8 flex gap-2 flex-wrap flex-shrink">
             {country.borders &&
-              country.borders.map((border) => (
+              country.borders.slice(0, 7).map((border) => (
                 <Link
                   href={`/country/${border}`}
                   key={border}
-                  className="shadow-md px-5 text-sm py-2 ml-2 inline-block"
+                  className="shadow-md   px-5 py-2 text-sm  dark:bg-gray-700"
                 >
                   {border}
                 </Link>

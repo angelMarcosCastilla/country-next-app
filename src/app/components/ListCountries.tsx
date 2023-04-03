@@ -30,7 +30,7 @@ export default function ListCountries({ countries }: PropsI) {
     <section className="container pt-5">
       <section className="mb-8 flex justify-between items-center flex-wrap gap-2">
         <input
-          className="border border-gray-300 rounded-md px-4 py-2 w-[350px] outline-none focus:border-gray-500"
+          className="border dark:bg-gray-700 dark:text-gray-200 border-gray-300 dark:border-gray-500 rounded-md px-4 py-2 w-[350px] outline-none focus:border-gray-500  dark:focus:border-gray-400 "
           type="text"
           placeholder="search for a country..."
           value={search}
@@ -45,11 +45,16 @@ export default function ListCountries({ countries }: PropsI) {
       </section>
       <section className={styles.gridCounter}>
         {filterCountries.map((country: Country) => (
-          <article key={country.name.common} className="bg-white">
+          <article
+            key={country.name.common}
+            className="bg-white dark:bg-gray-700 dark:text-slate-200"
+          >
             <Link href={`/country/${country.cca2}`}>
               <Image width={200} height={150} src={country.flags.svg} alt="" />
               <footer className="pl-3 mb-2 pb-4">
-                <h2 className="text-xl py-3 font-bold">{country.name.common}</h2>
+                <h2 className="text-xl py-3 font-bold">
+                  {country.name.common}
+                </h2>
                 <div className="text-sm ">
                   <p className="mb-1">
                     <strong>Population: </strong>
