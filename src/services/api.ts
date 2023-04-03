@@ -13,8 +13,8 @@ export const api: ApiI = {
     return data
   },
 
-  getCountryByName: async (name: string) => {
-    const res = await fetch(`https://restcountries.com/v3.1/name/${name}`)
+  getCountryByName: async (code: string) => {
+    const res = await fetch(`https://restcountries.com/v3.1/alpha/${code}`)
     const data = await res.json()
     return data[0]
   }

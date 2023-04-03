@@ -19,7 +19,7 @@ const CountryPage = async ({ params }: PageProps) => {
   return (
     <div className="container py-14">
       <Link href="/" className="shadow-md px-6 py-2 hover:bg-gray-100">
-      ← {" "}Back
+        ← Back
       </Link>
       <article className="py-14 flex gap-x-20 flex-wrap mt-5">
         <section>
@@ -59,6 +59,18 @@ const CountryPage = async ({ params }: PageProps) => {
               </p>
             </div>
           </div>
+          <footer className="mt-8">
+            {country.borders &&
+              country.borders.map((border) => (
+                <Link
+                  href={`/country/${border}`}
+                  key={border}
+                  className="shadow-md px-5 text-sm py-2 ml-2 inline-block"
+                >
+                  {border}
+                </Link>
+              ))}
+          </footer>
         </section>
       </article>
     </div>

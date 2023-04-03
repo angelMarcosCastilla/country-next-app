@@ -1,5 +1,6 @@
-import styles from "./page.module.css";
-export default function Loading() {
+import styles from "@/app/page.module.css";
+
+export default function LoadingListCountries() {
   return (
     <section className="container pt-5">
       <div role="loading" className="mb-8 flex justify-between items-center">

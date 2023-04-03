@@ -46,7 +46,7 @@ export default function ListCountries({ countries }: PropsI) {
       <section className={styles.gridCounter}>
         {filterCountries.map((country: Country) => (
           <article key={country.name.common} className="bg-white">
-            <Link href={`/country/${country.name.common}`}>
+            <Link href={`/country/${country.cca2}`}>
               <Image width={200} height={150} src={country.flags.svg} alt="" />
               <footer className="pl-3 mb-2 pb-4">
                 <h2 className="text-xl py-3 font-bold">{country.name.common}</h2>
