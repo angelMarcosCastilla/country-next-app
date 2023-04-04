@@ -13,7 +13,8 @@ interface PageProps {
 const CountryPage = async ({ params }: PageProps) => {
   const country: Country = await api.getCountryByName(params.country);
 
-  const oficialCurrency = Object.values(country.currencies || {})[0].name;
+  const oficialCurrency =
+    country.currencies && Object.values(country.currencies || {})[0].name;
   const population = country.population.toLocaleString("en-US");
 
   return (
@@ -68,7 +69,7 @@ const CountryPage = async ({ params }: PageProps) => {
                 <Link
                   href={`/country/${border}`}
                   key={border}
-                  className="shadow-md   px-5 py-2 text-sm  dark:bg-gray-700"
+                  className="shadow-md  px-5 py-2 text-sm  dark:bg-gray-700"
                 >
                   {border}
                 </Link>
